@@ -1,12 +1,14 @@
 package com.onlylemi.mapview.library.layer;
 
 import android.animation.Animator;
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.widget.Scroller;
 
 import androidx.annotation.NonNull;
@@ -53,6 +55,9 @@ public class GridLayer extends MapBaseLayer {
     private static final int GRID_LABEL_TEXT_SIZE = 10;
     private static final int ANCHOR_MIN_TRIANGLE_SIZE = 2;
     private static final int ANCHOR_MAX_TRIANGLE_SIZE = 7;
+
+    private ScaleGestureDetector mScaleGestureDetector;
+    private GestureDetector mGestureDetector;
 
     // line widths (relative)
     private static final float[] GRID_LINE_WIDTH = {
@@ -112,9 +117,12 @@ public class GridLayer extends MapBaseLayer {
         super(mapView);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
-    public void onTouch(MotionEvent event) {
-
+    public boolean onTouch(MotionEvent event) {
+        boolean s = mScaleGestureDetector.onTouchEvent(event);
+        boolean g = mGestureDetector.onTouchEvent(event);
+        return s || g;
     }
 
     @Override
