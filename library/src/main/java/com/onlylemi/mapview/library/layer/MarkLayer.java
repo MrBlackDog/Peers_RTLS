@@ -58,7 +58,7 @@ public class MarkLayer extends MapBaseLayer {
     }
 
     @Override
-    public void onTouch(MotionEvent event) {
+    public boolean onTouch(MotionEvent event) {
         if (marks != null) {
             if (!marks.isEmpty()) {
                 float[] goal = mapView.convertMapXYToScreenXY(event.getX(), event.getY());
@@ -82,6 +82,7 @@ public class MarkLayer extends MapBaseLayer {
                 mapView.refresh();
             }
         }
+        return false;
     }
 
     @Override

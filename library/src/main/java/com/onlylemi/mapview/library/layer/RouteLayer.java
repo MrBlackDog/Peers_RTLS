@@ -58,8 +58,9 @@ public class RouteLayer extends MapBaseLayer {
     }
 
     @Override
-    public void onTouch(MotionEvent event) {
+    public boolean onTouch(MotionEvent event) {
 
+        return false;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.onlylemi.mapview.library.layer;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -10,8 +9,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import com.onlylemi.mapview.library.MapView;
-
-import java.util.Arrays;
 
 /**
  * BitmapLayer
@@ -41,7 +38,7 @@ public class BitmapLayer extends MapBaseLayer {
     }
 
     @Override
-    public void onTouch(MotionEvent event) {
+    public boolean onTouch(MotionEvent event) {
         if (onBitmapClickListener != null) {
             float[] goal = mapView.convertMapXYToScreenXY(event.getX(), event.getY());
             Log.i("BitmapLayer", "goal: " + goal[0] + ", " + goal[1]);
@@ -52,6 +49,7 @@ public class BitmapLayer extends MapBaseLayer {
                 onBitmapClickListener.onBitmapClick(this);
             }
         }
+        return false;
     }
 
     @Override

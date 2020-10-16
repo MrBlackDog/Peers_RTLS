@@ -108,8 +108,9 @@ public class LocationLayer extends MapBaseLayer {
     }
 
     @Override
-    public void onTouch(MotionEvent event) {
+    public boolean onTouch(MotionEvent event) {
 
+        return false;
     }
 
     @Override

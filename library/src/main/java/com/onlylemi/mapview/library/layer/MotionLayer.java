@@ -1,7 +1,6 @@
 package com.onlylemi.mapview.library.layer;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
@@ -144,8 +143,9 @@ public class MotionLayer extends MapBaseLayer {
     }
 
     @Override
-    public void onTouch(MotionEvent event) {
+    public boolean onTouch(MotionEvent event) {
 
+        return false;
     }
 
     @Override

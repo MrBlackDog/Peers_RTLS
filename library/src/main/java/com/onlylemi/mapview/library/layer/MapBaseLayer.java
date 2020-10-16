@@ -34,8 +34,9 @@ public abstract class MapBaseLayer {
      * touch event
      *
      * @param event
+     * @return
      */
-    public abstract void onTouch(MotionEvent event);
+    public abstract boolean onTouch(MotionEvent event);
 
     /**
      * draw event

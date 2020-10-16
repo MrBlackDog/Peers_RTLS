@@ -87,8 +87,9 @@ public class MapLayer extends MapBaseLayer {
     }
 
     @Override
-    public void onTouch(MotionEvent event) {
+    public boolean onTouch(MotionEvent event) {
 
+        return false;
     }
 
     @Override
